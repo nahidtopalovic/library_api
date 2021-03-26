@@ -12,12 +12,8 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  resources: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Resource',
-    },
-  ],
+  // status indicates whether book is read or it is currently being read
+  books: [{ title: String, bookid: String, read: Boolean, wishlist: Boolean }],
 })
 
 userSchema.plugin(uniqueValidator)

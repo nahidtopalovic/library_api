@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken')
 const middleware = require('../utils/middleware')
 const axios = require('axios')
 
-// const Resource = require('../models/resource')
 const User = require('../models/user')
 
 booksRouter.use(middleware.tokenExtractor)
@@ -42,39 +41,122 @@ booksRouter.get('/', async (request, response) => {
   // last field is the id https://www.googleapis.com/books/v1/volumes/{id}
 })
 
-// !!!!!!!!
-// add book to users list in db
-// rework this post request
-// !!!!!!!!
+// retrieve users books with populated data
+booksRouter.get('/userbooks', async (request, response) => {
+  const decodedToken = jwt.verify(request.token, process.env.SECRET)
 
-// booksRouter.post('/', async (request, response) => {
-//   const newResource = request.body
+  if (!request.token || !decodedToken.id) {
+    return response.status(401).json({ error: 'token missing or invalid' })
+  }
 
-//   const decodedToken = jwt.verify(request.token, process.env.SECRET)
+  const user = await User.findById(decodedToken.id)
 
-//   if (!request.token || !decodedToken.id) {
-//     return response.status(401).json({ error: 'token missing or invalid' })
-//   }
+  if (user) {
+    books = user.books
 
-//   const user = await User.findById(decodedToken.id)
+    requestUrls = books.map(book => {
+      if (book.bookid) {
+        return `https://www.googleapis.com/books/v1/volumes/${book.bookid}`
+      }
+    })
 
-//   if (!newResource.title || !newResource.type) {
-//     return response.status(400).end()
-//   }
+    requestUrls = requestUrls.filter(url => url !== null)
 
-//   const resource = new Resource({
-//     title: newResource.title,
-//     author: newResource.author,
-//     type: newResource.type,
-//     popularity: newResource.popularity || 0,
-//     user: user._id,
-//   })
+    console.log(requestUrls)
 
-//   const savedResource = await resource.save()
-//   user.resources = user.resources.concat(savedResource._id)
-//   await user.save()
+    res2 = await Promise.all(
+      requestUrls.map(async url => {
+        bookResp = await axios.get(url)
+        return bookResp
+      })
+    )
 
-//   response.status(201).json(savedResource.toJSON())
-// })
+    console.log(res2)
+    response.json(res2)
+  }
+
+  response.status(400).json({ error: 'invalid permissions' })
+})
+
+// Adding a book to user's list
+booksRouter.post('/', async (request, response) => {
+  const newBook = request.body
+
+  const decodedToken = jwt.verify(request.token, process.env.SECRET)
+
+  if (!request.token || !decodedToken.id) {
+    return response.status(401).json({ error: 'token missing or invalid' })
+  }
+
+  const user = await User.findById(decodedToken.id)
+
+  if (!newBook.title || !newBook.bookid) {
+    return response.status(400).end()
+  }
+
+  const book = {
+    title: newBook.title,
+    bookid: newBook.bookid,
+    read: newBook.read || false,
+    wishlist: newBook.wishlist || false,
+  }
+
+  user.books = user.books.concat(book)
+  await user.save()
+
+  response.status(201).json(book)
+})
+
+// update book's read and wishlist status
+
+booksRouter.put('/:id', async (request, response) => {
+  const body = request.body
+
+  const decodedToken = jwt.verify(request.token, process.env.SECRET)
+
+  if (!request.token || !decodedToken.id) {
+    return response.status(401).json({ error: 'token missing or invalid' })
+  }
+
+  const user = await User.findById(decodedToken.id)
+
+  if (user) {
+    bookToUpdate = user.books.filter(book => book.bookid === request.params.id)
+    updatedBook = {
+      ...bookToUpdate,
+      status: body.status,
+      wishlist: body.wishlist,
+    }
+
+    books = user.books.filter(book => book.bookid !== request.params.id)
+    updatedBooks = books.concat(updatedBook)
+    user.books = updatedBooks
+    await user.save()
+    return response.json(updatedBook)
+  }
+
+  response.status(400).json({ error: 'invalid permissions' })
+})
+
+booksRouter.delete('/:id', async (request, response) => {
+  const decodedToken = jwt.verify(request.token, process.env.SECRET)
+
+  if (!request.token || !decodedToken.id) {
+    return response.status(401).json({ error: 'token missing or invalid' })
+  }
+
+  const user = await User.findById(decodedToken.id)
+
+  if (user) {
+    const modifiedBooks = user.books.filter(
+      book => book.bookid !== request.params.id
+    )
+    user.books = modifiedBooks
+    await user.save()
+    return response.status(204).end()
+  }
+
+  response.status(400).json({ error: 'invalid permissions' })
+})
 
 module.exports = booksRouter

@@ -3,11 +3,7 @@ const bcrypt = require('bcrypt')
 const User = require('../models/user')
 
 usersRouter.get('/', async (request, response) => {
-  const users = await User.find({}).populate('resources', {
-    title: 1,
-    author: 1,
-    url: 1,
-  })
+  const users = await User.find({})
 
   response.json(users.map(user => user.toJSON()))
 })
@@ -15,9 +11,11 @@ usersRouter.get('/', async (request, response) => {
 usersRouter.post('/', async (request, response) => {
   const body = request.body
 
+  console.log(typeof body.username)
+
   if (
     !(body.password && body.username) ||
-    !(body.password.length > 2 && body.username.lenght > 2)
+    !(body.password.length > 2 && body.username.length > 2)
   ) {
     return response.status(400).json({ error: 'invalid username or password' })
   }
