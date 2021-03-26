@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 
+// we won't need to store any info about specific books
+// so this schema is not needed
+
 mongoose.set('useFindAndModify', false)
 
 const resourceSchema = mongoose.Schema({
@@ -22,4 +25,4 @@ resourceSchema.set('toJSON', {
   },
 })
 
-module.exports = mongoose.model('Resource', resourceSchema)
+module.exports = mongoose.model('Book', resourceSchema)
