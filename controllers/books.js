@@ -23,7 +23,19 @@ booksRouter.get('/', async (request, response) => {
     { params: { q: bookInfo.name } }
   )
 
-  return response.json(apiResponse.data.items)
+  books = apiResponse.data.items.map(book => {
+    return {
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors,
+      publishers: book.volumeInfo.publisher,
+      id: book.id,
+      pageCount: book.volumeInfo.pageCount,
+      rating: book.volumeInfo.averageRating,
+      descriptioN: book.volumeInfo.description,
+    }
+  })
+
+  return response.json(books)
 
   // "selfLink": "https://www.googleapis.com/books/v1/volumes/f280CwAAQBAJ"
   // this is the link that can be used to query a specific book
