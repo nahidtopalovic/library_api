@@ -60,9 +60,7 @@ booksRouter.get('/userbooks', async (request, response) => {
       }
     })
 
-    requestUrls = requestUrls.filter(url => url !== null)
-
-    console.log(requestUrls)
+    requestUrls = requestUrls.filter(Boolean)
 
     res2 = await Promise.all(
       requestUrls.map(async url => {
@@ -70,9 +68,8 @@ booksRouter.get('/userbooks', async (request, response) => {
         return bookResp
       })
     )
-
-    console.log(res2)
-    response.json(res2)
+    // todo: return only necessary fields for the user
+    return response.json(res2.map(res => res.data))
   }
 
   response.status(400).json({ error: 'invalid permissions' })
