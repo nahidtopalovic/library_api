@@ -101,3 +101,5 @@ dist
 
 # .DS _store https://stackoverflow.com/questions/30246832/is-ds-store-file-important
 .DS_Store
+
+.env
