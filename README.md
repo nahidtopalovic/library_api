@@ -13,6 +13,7 @@ Concerning security mechanisms, the users' information follows salted and hash-b
 #### To be added
 * Securing the database with role-based policies.
 * Serving the application over HTTPS.
+* Error handling with REST add right errors, such as if staments (404)
 
 ### To run this repository locally
 ``
