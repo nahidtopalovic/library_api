@@ -11,8 +11,6 @@ usersRouter.get('/', async (request, response) => {
 usersRouter.post('/', async (request, response) => {
   const body = request.body
 
-  console.log(typeof body.username)
-
   if (
     !(body.password && body.username) ||
     !(body.password.length > 2 && body.username.length > 2)

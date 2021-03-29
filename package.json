@@ -26,7 +26,7 @@
     "eslint-config-prettier": "^8.1.0",
     "prettier": "^2.2.1"
   },
-  "engines": { 
-    "node": ">=14"
+  "engines": {
+    "node": "14.13.0"
   }
 }
