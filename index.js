@@ -13,7 +13,9 @@ const options = {
     cert: fs.readFileSync("cert.pem")
   };
 
-//normal stuff
+
+
+//normal stuff and ports
 const server = https.createServer(options, app);
 
 server.listen(config.PORT, () => {
