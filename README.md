@@ -10,23 +10,23 @@ _#QuarantineandChill #StayHomeStaySafe #togetherandhome_
 **This platform is developed in stages;** the first and current version of the MVP (minimum viable product) demonstrates a backend developed in Node.js with CRUD operations for user accounts stored on a cloud-based MongoDB. Interaction with the external Google API REST service is used for querying book information allowing this information to be added to user's accounts.  
 Concerning security mechanisms, the users' information follows salted and hash-based authentication.  
 
-### Backend (v.0.1)
+## Backend (v.0.1)
 Our current backend is on Azure. Feel free to try it ou here:
 
 
 [![Clublit! in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/deploybutton.png)](https://clublit.azurewebsites.net/)
 
 
-It is advisable to use [Postman](https://www.postman.com/) for CRUD operations to use the backend.
+It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when using the backend.
 
-### Front-end
-<p align="center">
+## Front-end
+<p align="left">
   <img src="https://github.com/nahidtopalovic/library_api/blob/main/media/IOS/front-end.png" height="450" />
 </p>
 
 The current version of the front-end can be found in the respective branch of this repository and ran locally. It was successfully tested on macOS Big Sur launched over the command line to open from the local server the IOS simulator as demonstrated on the respective section of the youtube video.
 
-### To run this repository locally
+## To run this repository locally
 Note: [Node.js](https://nodejs.org/en/) is required. 
 1. Through your terminal select the repository. 
 
