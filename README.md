@@ -8,7 +8,7 @@ The place where readers come together to network and talk with their favorite au
 _#QuarantineandChill #StayHomeStaySafe #togetherandhome_
 
 **This platform is developed in stages;** the first and current version of the MVP (minimum viable product) demonstrates a backend developed in Node.js with CRUD operations for user accounts stored on a cloud-based MongoDB. Interaction with the external Google API REST service is used for querying book information allowing this information to be added to user's accounts.  
-Concerning security mechanisms, the users' information follows salted and hash-based authentication.  
+Concerning security mechanisms, the users' information follows salted and hash-based authentication. Furthermore, all our current cloud deployments have an RSA TLS (Azure) and SHA2 (Heroku) signed HTTPS certificate. Our ``https`` branch in this repository contains a self-signed HTTPS certificate for local deployments. 
 
 ## Backend (v.0.1)
 Our current backend is on Azure and Heroku. Feel free to check them out here:
