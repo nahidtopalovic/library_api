@@ -11,10 +11,11 @@ _#QuarantineandChill #StayHomeStaySafe #togetherandhome_
 Concerning security mechanisms, the users' information follows salted and hash-based authentication.  
 
 ## Backend (v.0.1)
-Our current backend is on Azure. Feel free to try it ou here:
+Our current backend is on Azure and Heroku. Feel free to check them out here:
 
 
 [![Clublit! in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/deploybutton.png)](https://clublit.azurewebsites.net/)
+      [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://clublit.herokuapp.com/)
 
 
 It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when using the backend.
@@ -27,7 +28,6 @@ It is advisable to use [Postman](https://www.postman.com/) for CRUD operations w
 The current version of the front-end can be found in the respective branch of this repository and ran locally. It was successfully tested on macOS Big Sur launched over the command line to open from the local server the IOS simulator as demonstrated on the respective section of the youtube video.
 
 ## To run this repository locally
-Note: [Node.js](https://nodejs.org/en/) is required. 
 1. Through your terminal select the repository. 
 
 
@@ -43,6 +43,8 @@ npm start
 ``
 to start the application.
 
+
+Note: [Node.js](https://nodejs.org/en/) is required. 
 
 #### To be added
 * Securing the database with role-based policies.
