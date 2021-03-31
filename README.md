@@ -30,18 +30,18 @@ The current version of the front-end can be found in the respective branch of th
 ## To run this repository locally
 Download the source code and extract its contecnts or clone the repository.
 
-1. Through your terminal select the downloaded or cloned repository. 
+1. In your terminal select the downloaded or cloned repository. 
 
 
 2. ``
-npm install
+$ npm install
 ``
 to install missing depdencies.
 
 
 
 3. ``
-npm start
+$ npm start
 ``
 to start the application.
 
