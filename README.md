@@ -28,7 +28,9 @@ It is advisable to use [Postman](https://www.postman.com/) for CRUD operations w
 The current version of the front-end can be found in the respective branch of this repository and ran locally. It was successfully tested on macOS Big Sur launched over the command line to open from the local server the IOS simulator as demonstrated on the respective section of the youtube video.
 
 ## To run this repository locally
-1. Through your terminal select the repository. 
+Download the source code and extract its contecnts or clone the repository.
+
+1. Through your terminal select the downloaded or cloned repository. 
 
 
 2. ``
