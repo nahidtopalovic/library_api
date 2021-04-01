@@ -99,14 +99,15 @@ nvm install 14.13`
 Selecting node.js 14.13
 ``` 
 nvm use 14.13
-``
+```
 
 For more information, see: [nvm documentation)(https://github.com/nvm-sh/nvm)
 
 #### Docker Container
-1. Install (Docker)[https://docs.docker.com/get-docker/] and verify your installation with ``` docker -v ```
+1. Install [Docker](https://docs.docker.com/get-docker/) and verify your installation with ``` docker -v ```
 2. Launch the terminal in the library_api folder or direct to this directory.
 3. Build the docker image (be sure to include the ". " at the end and to define your username ``` whoami```)
+
 ```
 docker build -t <your username>/clublit . 
 ```
