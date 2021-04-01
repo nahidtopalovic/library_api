@@ -10,7 +10,7 @@ _#QuarantineandChill #StayHomeStaySafe #togetherandhome_
 
 ## Table of Contents
 - [About](#about)
-- [System Architecture](system-architecture)
+- [System Architecture](#system-architecture)
 - [Backend](#backend)
   - [Cloud App](#cloud-app)
   - [Running Locally](#running-locally)
