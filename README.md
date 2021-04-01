@@ -51,10 +51,13 @@ It is advisable to use [Postman](https://www.postman.com/) for CRUD operations w
 ### Running Locally
 To run this repository on your local machine download the source code and extract its contents or clone the repository.
 We provide you with a few options shipped with this repository. 
-1. Starting a local server with node.js with **version 14.13.0**.  
-2. Using ``` nvm```.
-If you have node.js already installed but are not running node version 14.13.0, you may wish to switch between node.js versions using `` nvm `` (see ``nvm `` section for details).  
-3. Using Docker.
+
+**Option 1:**  Starting a local server with your node.js installation running in **version 14.13.0**.  
+
+**Option 2:** Using ``` nvm```.
+If you have node.js already installed but are not running node version 14.13.0, you may wish to switch between node.js versions using `` nvm `` ([nvm instrcutions](#nvm)).  
+
+**Option 3:** Using Docker.
 
 #### Local Node Installation
 [Node.js](https://nodejs.org/en/) is required. 
