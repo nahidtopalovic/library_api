@@ -33,7 +33,6 @@ __Note:__ Not all features are available in the current release. This platform i
 <p align="center">
   <img src="https://github.com/nahidtopalovic/library_api/blob/main/media/architecture/cloud-clublit.png" />
 </p>
-
 The front-end serves as a seamless user interface for IOS 15 and android (planned in a future release).
 The backend is a REST-based service interface for CRUD operations (for example, data query of books, user sign up & login, POST, PUT) deployed via Elastic Beanstalk to AWS to facilitate scalable performance and Microsoft Azure as well as Heroku. The node server interacts with Google Books API. Furthermore, our system uses a NoSQL external Cloud database (MongoDB) to securely store our community user information (salted and hashed). 
 
@@ -101,7 +100,7 @@ Selecting node.js 14.13
 nvm use 14.13
 ```
 
-For more information, see: [nvm documentation)(https://github.com/nvm-sh/nvm)
+For more information, see: [nvm documentation](https://github.com/nvm-sh/nvm)
 
 #### Docker Container
 1. Install [Docker](https://docs.docker.com/get-docker/) and verify your installation with ``` docker -v ```
