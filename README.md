@@ -13,12 +13,12 @@ _#QuarantineandChill #StayHomeStaySafe #togetherandhome_
 - [System Architecture](system-architecture)
 - [Backend](#backend)
   - [Cloud App](#cloud-app)
-  - [Running Locally](running-locally)
-    - [Local Node.js Installation](local-node.js-installation)
+  - [Running Locally](#running-locally)
+    - [Local Node.js Installation](#local-node.js-installation)
     - [NVM](nvm)
-    - [Docker Container](docker-container)
- - [Front-end](fornt-end)
- - [Disclaimer](disclaimer)
+    - [Docker Container](#docker-container)
+ - [Front-end](#front-end)
+ - [Disclaimer](#disclaimer)
 
 
 ## About 
@@ -28,6 +28,14 @@ We bring great minds together to discuss and share their reading experiences thr
 Our app assists you with the search for new potential reads and creates your customized wish lists. 
 
 __Note:__ Not all features are available in the current release. This platform is developed in stages; the first and current version of the MVP (minimum viable product) demonstrates a backend developed in Node.js with CRUD operations for user accounts stored on a cloud-based MongoDB. Interaction with the external Google API REST service is used for querying book information allowing this information to be added to user's accounts. Concerning security mechanisms, the users' information follows salted and hash-based authentication. Furthermore, all our current cloud deployments have an RSA TLS (Azure) and SHA2 (Heroku) signed HTTPS certificate. Our ``https`` branch in this repository contains a self-signed HTTPS certificate for local deployments. 
+
+## System Architecture
+<p align="center">
+  <img src="https://github.com/nahidtopalovic/library_api/blob/main/media/architecture/cloud-clublit.png" />
+</p>
+
+The front-end serves as a seamless user interface for IOS 15 and android (planned in a future release).
+The backend is a REST-based service interface for CRUD operations (for example, data query of books, user sign up & login, POST, PUT) deployed via Elastic Beanstalk to AWS to facilitate scalable performance and Microsoft Azure as well as Heroku. The node server interacts with Google Books API. Furthermore, our system uses a NoSQL external Cloud database (MongoDB) to securely store our community user information (salted and hashed). 
 
 ## Backend
 ### Cloud App
