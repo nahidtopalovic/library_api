@@ -42,7 +42,7 @@ The backend is a REST-based service interface for CRUD operations (for example, 
 Our current backend is accessible as a cloud application :rocket: on Azure and Heroku. Feel free to check them out here:
 
 
-[![Clublit! in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/deploybutton.png)](https://clublit.azurewebsites.net/)
+[![Clublit! in Azure](https://aka.ms/deploytoazurebutton)](https://clublit.azurewebsites.net/)
       [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://clublit.herokuapp.com/)
 
 
@@ -63,8 +63,6 @@ If you have node.js already installed but are not running node version 14.13.0, 
 ```
 cd library_api | bash
 ```
-
-We provide you with two options in this repository. You may run 
 
 2. To install missing depdencies: 
 ```
