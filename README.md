@@ -14,8 +14,8 @@ _#QuarantineandChill #StayHomeStaySafe #togetherandhome_
 - [Backend](#backend)
   - [Cloud App](#cloud-app)
   - [Running Locally](#running-locally)
-    - [Local Node.js Installation](#local-node.js-installation)
-    - [NVM](nvm)
+    - [Local Node.js Installation](#local-node-installation)
+    - [NVM](#nvm)
     - [Docker Container](#docker-container)
  - [Front-end](#front-end)
  - [Disclaimer](#disclaimer)
@@ -52,16 +52,17 @@ It is advisable to use [Postman](https://www.postman.com/) for CRUD operations w
 To run this repository on your local machine download the source code and extract its contents or clone the repository.
 We provide you with a few options shipped with this repository. 
 1. Starting a local server with node.js with **version 14.13.0**.  
-2. Using ``` nvm```
-If you have node.js already installed but are not running node version 14.13.0, you may wish to switch between node.js versions using ```sh nvm ``` (see ``nvm `` section for details).  
-3. Using Docker or
+2. Using ``` nvm```.
+If you have node.js already installed but are not running node version 14.13.0, you may wish to switch between node.js versions using `` nvm `` (see ``nvm `` section for details).  
+3. Using Docker.
 
-#### Local Node.js Installation
+#### Local Node Installation
 [Node.js](https://nodejs.org/en/) is required. 
 
 1. In your terminal navigate to the downloaded or cloned repository. 
-
-``` cd library_api | bash```
+```
+cd library_api | bash
+```
 
 We provide you with two options in this repository. You may run 
 
@@ -70,16 +71,19 @@ We provide you with two options in this repository. You may run
 npm install
 ```
 
-3. ```npm start``` to start the application.
+3. To start the application:
+```
+npm start
+```
 
 
 #### NVM 
 Switching between node versions to run this app locally on your machine. 
 
 Installing nvm on mac:
-
-```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash```
-
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+```
 Adding the source lines from the snippet below to the correct profile file:
 
 ```
@@ -97,12 +101,14 @@ For more information, see: [nvm documentation)[https://github.com/nvm-sh/nvm]
 1. Install (Docker)[https://docs.docker.com/get-docker/] and verify your installation with ``` docker -v ```
 2. Launch the terminal in the library_api folder or direct to this directory.
 3. Build the docker image (be sure to include the ". " at the end and to define your username ``` whoami```)
-
-``` docker build -t <your username>/clublit . ```
+```
+docker build -t <your username>/clublit . 
+```
 
 4. Run your container:
-
-``` docker run -it -p 3000:3000 qmul/clublit ``` 
+```
+docker run -it -p 3000:3000 qmul/clublit 
+```
 
 This will map port 3000 to the host 3000 in our container. 
 
