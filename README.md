@@ -92,11 +92,16 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 Installing node.js version 14.13
-``` nvm install 14.13```
+```
+nvm install 14.13`
+``
 
 Selecting node.js 14.13
-``` nvm use 14.13```
-For more information, see: [nvm documentation)[https://github.com/nvm-sh/nvm]
+``` 
+nvm use 14.13
+``
+
+For more information, see: [nvm documentation)(https://github.com/nvm-sh/nvm)
 
 #### Docker Container
 1. Install (Docker)[https://docs.docker.com/get-docker/] and verify your installation with ``` docker -v ```
