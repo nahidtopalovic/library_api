@@ -94,7 +94,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 Installing node.js version 14.13
 ```
 nvm install 14.13`
-``
+```
 
 Selecting node.js 14.13
 ``` 
