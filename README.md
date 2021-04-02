@@ -113,11 +113,12 @@ docker build -t <your username>/clublit .
 
 4. Run your container:
 ```
-docker run -it -p 3000:3000 qmul/clublit 
+docker run -it -p 3000:3000 <your username>/clublit 
 ```
 
 This will map port 3000 to the host 3000 in our container. 
 
+5. Access the backend from your browser via ``http://localhost:3000``
 
 More info: [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/) 
 
