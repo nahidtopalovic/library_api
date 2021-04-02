@@ -139,6 +139,7 @@ cd front-end
 Install dependecies.
 ```
 npm install
+
 ```
 
 Start the front-end node.js server by typing 
