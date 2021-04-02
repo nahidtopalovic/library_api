@@ -33,7 +33,7 @@ __Note:__ Not all features are available in the current release. This platform i
 <p align="center">
   <img src="https://github.com/nahidtopalovic/library_api/blob/main/media/architecture/cloud-clublit.png" />
 </p>
-The front-end serves as a seamless user interface for IOS 15 and android (planned in a future release).
+The front-end serves as a seamless user interface for IOS 14 and android (planned in a future release).
 The backend is a REST-based service interface for CRUD operations (for example, data query of books, user sign up & login, POST, PUT) deployed via Elastic Beanstalk to AWS to facilitate scalable performance and Microsoft Azure as well as Heroku. The node server interacts with Google Books API. Furthermore, our system uses a NoSQL external Cloud database (MongoDB) to securely store our community user information (salted and hashed). 
 
 ## Backend
@@ -129,9 +129,24 @@ More info: [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nod
   <img src="https://github.com/nahidtopalovic/library_api/blob/main/media/IOS/front-end.png" height="450" />
 </p>
 
-The current version of the front-end can be found in the respective branch of this repository and ran locally. It was successfully tested on macOS Big Sur launched over the command line. The IOS simulator or Android emulator can be launched through the web interface of the local server. 
+The current version of the front-end can only be ran locally. It was successfully tested on macOS Big Sur launched over the command line. The IOS simulator or Android emulator can be launched through the web interface of the local server. [Node.js](https://nodejs.org/en/) is required alongside with the respective Node version, please see [nvm](#nvm) and [docker](#docker) section above in further detail.
 
-Note: [Node.js](https://nodejs.org/en/) is required.
+To launch the front end, navigate into the front-end folder of the repository. 
+```
+cd front-end
+```
 
+Install dependecies.
+```
+npm install
+```
 
+Start the front-end node.js server by typing 
+```
+npm start
+```
+
+You may be asked to install further dependencies to run the IOS simulator ([Xcode](https://developer.apple.com/xcode/) required) or android emulator. 
+
+<!-- ### Disclaimer -->
 _Disclaimer: This project is part of a cloud computing coursework taught by [Dr. Sukhpal Singh Gill](https://github.com/iamssgill) and [Ignacio De Castro Arribas](https://www.linkedin.com/in/ignacio-de-castro-arribas-44a48117) at the Queen Mary University of London Electrical Engineering & Computer Science Department to create a prototype of a cloud application._
