@@ -35,7 +35,7 @@ app.use('/api/books', booksRouter)
 
 app.get('/', (request, response) => {
   response.send(
-    '<h1>Welcome to CLUBLIT API!</h1><p>Access API routes on: api/users, api/books and api/login.</p>'
+    '<h1>Welcome to the "CLUBLIT!" &#128218; backend!</h1><p>Access API routes on: api/users, api/books and api/login.</p><a href="https://github.com/nahidtopalovic/library_api">Documentation on Github.</a><p style="font-size:100px">&#128640;</p><p> Authors: Nahid Topalovic, David Haunschild, Logan Vasudeva, Mohsen Razvi & Rahatul Alom. </p>'
   )
 })
 
