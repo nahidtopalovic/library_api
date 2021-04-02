@@ -11,6 +11,8 @@ const booksRouter = require('./controllers/books')
 
 const app = express()
 
+app.use('/favicon.ico', express.static('media/favicon.ico'))
+
 logger.info('connecting to', config.MONGODB_URI)
 
 mongoose
@@ -35,7 +37,7 @@ app.use('/api/books', booksRouter)
 
 app.get('/', (request, response) => {
   response.send(
-    '<h1>Welcome to the "CLUBLIT!" &#128218; backend!</h1><p>Access API routes on: api/users, api/books and api/login.</p><a href="https://github.com/nahidtopalovic/library_api">Documentation on Github.</a><p style="font-size:100px">&#128640;</p><p> Authors: Nahid Topalovic, David Haunschild, Logan Vasudeva, Mohsen Razvi & Rahatul Alom. </p>'
+    '<link rel="icon" href="favicon.ico?v=1.1"><h1>Welcome to the "CLUBLIT!" &#128218; backend!</h1><p>Access API routes on: api/users, api/books and api/login.</p><a href="https://github.com/nahidtopalovic/library_api">Documentation on Github.</a><p style="font-size:100px">&#128640;</p><p> Authors: Nahid Topalovic, David Haunschild, Logan Vasudeva, Mohsen Razvi & Rahatul Alom. </p>'
   )
 })
 
