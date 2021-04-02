@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/nahidtopalovic/library_api/blob/main/media/logo/banner.png" />
+  <img src="https://github.com/nahidtopalovic/library_api/blob/main/media/IOS/IOS_show_off.gif" height="400" />
 </p>
 
 # CLUBLIT! :books:
