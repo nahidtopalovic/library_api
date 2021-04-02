@@ -33,6 +33,12 @@ app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/books', booksRouter)
 
+app.get('/', (request, response) => {
+  response.send(
+    '<h1>Welcome to CLUBLIT API!</h1><p>Access API routes on: api/users, api/books and api/login.</p>'
+  )
+})
+
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 
