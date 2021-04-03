@@ -43,6 +43,7 @@ Our current backend is accessible as a cloud application :rocket: on Azure and H
 
 [![Clublit! in Azure](https://aka.ms/deploytoazurebutton)](https://clublit.azurewebsites.net/)
       [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://clublit.herokuapp.com/)
+      [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](http://35.233.107.125:3000)
 
 
 It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when acccessing the backend.
@@ -90,12 +91,12 @@ Adding the source lines from the snippet below to the correct profile file:
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
-Installing node.js version 14.13
+Installing node.js version 14.13:
 ```
-nvm install 14.13`
+nvm install 14.13
 ```
 
-Selecting node.js 14.13
+Selecting node.js 14.13:
 ``` 
 nvm use 14.13
 ```
@@ -136,13 +137,12 @@ To launch the front end, navigate into the front-end folder of the repository.
 cd front-end
 ```
 
-Install dependecies.
+Install dependencies.
 ```
 npm install
-
 ```
 
-Start the front-end node.js server by typing 
+Start the front-end node.js server by typing:
 ```
 npm start
 ```
