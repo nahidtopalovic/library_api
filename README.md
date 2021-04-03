@@ -8,6 +8,8 @@
 The place where readers come together to network and talk with their favorite authors and like-minded peers over voice. 
 _#QuarantineandChill #StayHomeStaySafe #togetherandhome_
 
+[![Clublit! in Azure](https://aka.ms/deploytoazurebutton)](https://clublit.azurewebsites.net/)
+
 ## Table of Contents
 - [About](#about)
 - [System Architecture](#system-architecture)
@@ -40,23 +42,152 @@ The front-end serves as a seamless user interface for IOS 14 and android (planne
 The backend is a REST-based service interface for CRUD operations (for example, data query of books, user sign up & login, POST, PUT) deployed via Elastic Beanstalk to AWS to facilitate scalable performance and Microsoft Azure as well as Heroku. The node server interacts with Google Books API. Furthermore, our system uses a NoSQL external Cloud database (MongoDB) to securely store our community user information (salted and hashed). 
 
 ## Backend
+It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when acccessing the backend.
 ### Cloud App
-Our current backend is accessible as a cloud application :rocket: on Azure and Heroku. Feel free to check them out here:
+Our current backend is accessible as a cloud application :rocket: on [Google Cloud](#google-cloud), [Azure](#microsoft-azure) and [Heroku](#heroku). 
+Feel free to check them out!
 
 #### Google Cloud
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](http://35.233.107.125:3000)
 
+This is our load balanced deployment!
+
+To deploy a load-balanced application with Kubernetes, the following approach can be followed by having logged into the cloud console and created a new project. 
+
+##### Pre-Checks
+First, launch the cloud shell and clone the repository by:
+``` 
+git clone https://github.com/nahidtopalovic/library_api.git
+```
+Navigate into the repository by typing 
+```
+cd library-api
+```
+Verify your project ID (note you must change ``PROJECT_ID`` with your project ID, which can be found by typing ``gloud projects list``)
+
+```
+export PROJECT_ID= PROJECT_ID
+```
+Once applied, test it with the following command. 
+```
+export PROJECT_ID= PROJECT_ID
+```
+Now you may copy-paste the following commands without adjusting.
+
+##### Creating the Docker Image
+<p align="left">
+  <img src="https://www.docker.com/sites/default/files/d8/2019-07/horizontal-logo-monochromatic-white.png" height="40" />
+</p>
+Create our docker image with the ``Dockerfile`` from our repository by:
+
+```
+docker build -t gcr.io/${PROJECT_ID}/clublit:v1 .
+```
+
+List your Docker images to verify.
+```
+docker images
+```
+##### Pushing the Docker image to the Container Registry
+Now we are required to enable the [Container Registy API](https://console.cloud.google.com/apis/library/containerregistry.googleapis.com); please note that this may require further adjustments from your API settings to turn on the Kubernetes API (check out the Google Cloud [API manager](https://cloud.google.com/apis)).   
+```
+gcloud services enable containerregistry.googleapis.com
+```
+Furthermore, we need to authorize the docker configuration.
+```
+gcloud auth configure-docker
+```
+Now we push the image
+```
+docker push gcr.io/${PROJECT_ID}/clublit:v1
+```
+#### Creating a GKE cluster
+Setting the project ID:
+```
+gcloud config set project $PROJECT_ID
+```
+
+Setting the zone or region (Europe as an example, adjust to your needs).
+```
+gcloud config set compute/zone europe-west1-b 
+```
+Creating our Standard Cluster:
+```
+gcloud container clusters create clublit-cluster
+```
+
+Checking the cluster's three nodes
+```
+kubectl get nodes
+```
+#### Deploying CLUBLIT! to GKE
+Ensuing the connection to the appropriate cluster:
+```
+gcloud container clusters get-credentials clublit-cluster --zone europe-west1-b 
+```
+Creating the deployment
+```
+kubectl create deployment clublit --image=gcr.io/${PROJECT_ID}/clublit:v1
+```
+
+Setting a baseline to three deployment replicas
+```
+kubectl scale deployment clublit --replicas=3
+```
+
+Creating a HorizontalPodAutoscaler:
+```
+kubectl autoscale deployment clublit --cpu-percent=80 --min=1 --max=5
+```
+
+Checking if our pods are created successfully:
+```
+kubectl get pods
+```
+
+#### Exposing CLUBLIT! to the internet
+In our case, we require port 3000, as our development .env file contains information to connect to MongoDB set to port 3000.
+
+```
+kubectl expose deployment clublit --name=clublit-service --type=LoadBalancer --port 3000 --target-port 3000
+```
+
+Verify that the services are running :
+```
+kubectl get service
+```
+Note that it may require you to wait until you can see your public IP address if it is saying ```<pending>``. 
+
+#### Delete the Service,  Cluster & Images
+If you are done testing our educational application you may follow these steps:
+```
+kubectl delete service clublit-service
+```
+```
+gcloud container clusters delete clublit-cluster --zone europe-west1-b
+```
+```
+gcloud container images delete gcr.io/${PROJECT_ID}/clublit:v1  --force-delete-tags --quiet
+```
+
+More information can be found in this tutorial: [Google cloud Kubernetes Engine Documentation](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app#cloud-shell)
+
 
 #### Microsoft Azure
+
 [![Clublit! in Azure](https://aka.ms/deploytoazurebutton)](https://clublit.azurewebsites.net/)
+
+This deployment is currently not load balanced yet but supports an HTTPS certificate. 
 
 
 #### Heroku
 [![Run](https://www.herokucdn.com/deploy/button.svg)](https://clublit.herokuapp.com/)
+
+This deployment is currently not load balanced yet but supports an HTTPS certificate. 
       
 
 
-It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when acccessing the backend.
+NOTE: It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when acccessing the backend.
 
 ### Running Locally
 To run this repository on your local machine download the source code and extract its contents or clone the repository.
