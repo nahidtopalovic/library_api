@@ -13,6 +13,9 @@ _#QuarantineandChill #StayHomeStaySafe #togetherandhome_
 - [System Architecture](#system-architecture)
 - [Backend](#backend)
   - [Cloud App](#cloud-app)
+    - [Google Cloud](#google-cloud)
+    - [Microsoft Azure](#microsoft-azure)
+    - [Heroku](#heroku)
   - [Running Locally](#running-locally)
     - [Local Node.js Installation](#local-node-installation)
     - [NVM](#nvm)
@@ -40,10 +43,17 @@ The backend is a REST-based service interface for CRUD operations (for example, 
 ### Cloud App
 Our current backend is accessible as a cloud application :rocket: on Azure and Heroku. Feel free to check them out here:
 
+#### Google Cloud
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](http://35.233.107.125:3000)
 
+
+#### Microsoft Azure
 [![Clublit! in Azure](https://aka.ms/deploytoazurebutton)](https://clublit.azurewebsites.net/)
-      [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://clublit.herokuapp.com/)
-      [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](http://35.233.107.125:3000)
+
+
+#### Heroku
+[![Run](https://www.herokucdn.com/deploy/button.svg)](https://clublit.herokuapp.com/)
+      
 
 
 It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when acccessing the backend.
@@ -130,7 +140,7 @@ More info: [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nod
   <img src="https://github.com/nahidtopalovic/library_api/blob/main/media/IOS/front-end.png" height="450" />
 </p>
 
-The current version of the front-end can only be ran locally. It was successfully tested on macOS Big Sur launched over the command line. The IOS simulator or Android emulator can be launched through the web interface of the local server. [Node.js](https://nodejs.org/en/) is required alongside with the respective Node version, please see [nvm](#nvm) and [docker](#docker) section above in further detail.
+The current version of the front-end can only be ran locally. It was successfully tested on macOS Big Sur launched over the command line. The IOS simulator or Android emulator can be launched through the web interface of the local server. [Node.js](https://nodejs.org/en/) is required alongside with the respective Node version, please see [nvm](#nvm) and [docker](#docker-container) section above in further detail.
 
 To launch the front end, navigate into the front-end folder of the repository. 
 ```
