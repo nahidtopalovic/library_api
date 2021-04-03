@@ -78,7 +78,7 @@ Now you may copy-paste the following commands without adjusting.
 <p align="left">
   <img src="https://www.docker.com/sites/default/files/d8/2019-07/horizontal-logo-monochromatic-white.png" height="40" />
 </p>
-Create our docker image with the ``Dockerfile`` from our repository by:
+Create our docker image with the "Dockerfile" from our repository by:
 
 ```
 docker build -t gcr.io/${PROJECT_ID}/clublit:v1 .
@@ -156,7 +156,7 @@ Verify that the services are running :
 ```
 kubectl get service
 ```
-Note that it may require you to wait until you can see your public IP address if it is saying ```<pending>``. 
+Note that it may require you to wait until you can see your public IP address if it is saying ``<pending>``. 
 
 #### Delete the Service,  Cluster & Images
 If you are done testing our educational application you may follow these steps:
