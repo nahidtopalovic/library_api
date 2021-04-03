@@ -114,6 +114,10 @@ nvm use 14.13
 For more information, see: [nvm documentation](https://github.com/nvm-sh/nvm)
 
 #### Docker Container
+<p align="left">
+  <img src="https://www.docker.com/sites/default/files/d8/2019-07/horizontal-logo-monochromatic-white.png" height="75" />
+</p>
+
 1. Install [Docker](https://docs.docker.com/get-docker/) and verify your installation with ``` docker -v ```
 2. Launch the terminal in the library_api folder or direct to this directory.
 3. Build the docker image (be sure to include the ". " at the end and to define your username ``` whoami```)
