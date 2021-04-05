@@ -42,7 +42,7 @@ The front-end serves as a seamless user interface for IOS 14 and android (planne
 The backend is a REST-based service interface for CRUD operations (for example, data query of books, user sign up & login, POST, PUT) deployed via Elastic Beanstalk to AWS to facilitate scalable performance and Microsoft Azure as well as Heroku. The node server interacts with Google Books API. Furthermore, our system uses a NoSQL external Cloud database (MongoDB) to securely store our community user information (salted and hashed). 
 
 ## Backend
-It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when acccessing the backend.
+It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when accessing the backend.
 ### Cloud App
 Our current backend is accessible as a cloud application :rocket: on [Google Cloud](#google-cloud), [Azure](#microsoft-azure) and [Heroku](#heroku). 
 Feel free to check them out!
@@ -187,7 +187,7 @@ This deployment is currently not load balanced yet but supports an HTTPS certifi
       
 
 
-NOTE: It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when acccessing the backend.
+NOTE: It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when accessing the backend.
 
 ### Running Locally
 To run this repository on your local machine download the source code and extract its contents or clone the repository.
@@ -221,7 +221,7 @@ If you have node.js already installed but are not running node version 14.13.0, 
 cd library_api | bash
 ```
 
-2. To install missing depdencies: 
+2. To install missing dependencies: 
 ```
 npm install
 ```
