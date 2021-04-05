@@ -9,11 +9,18 @@ The place where readers come together to network and talk with their favorite au
 _#QuarantineandChill #StayHomeStaySafe #togetherandhome_
 
 [![Clublit! in Azure](https://aka.ms/deploytoazurebutton)](https://clublit.azurewebsites.net/)
+[![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://hub.docker.com/r/hauni97/clublit_library_api_app)
+
+**Docker Pull Command**
+```
+docker pull hauni97/clublit_library_api_app
+```
 
 ## Table of Contents
 - [About](#about)
 - [System Architecture](#system-architecture)
 - [Backend](#backend)
+  - [CRUD Operations](#crud-operations)
   - [Cloud App](#cloud-app)
     - [Google Cloud](#google-cloud)
     - [Microsoft Azure](#microsoft-azure)
@@ -39,10 +46,24 @@ __Note:__ Not all features are available in the current release. This platform i
   <img src="media/architecture/cloud-clublit.png" />
 </p>
 The front-end serves as a seamless user interface for IOS 14 and android (planned in a future release).
-The backend is a REST-based service interface for CRUD operations (for example, data query of books, user sign up & login, POST, PUT) deployed via Elastic Beanstalk to AWS to facilitate scalable performance and Microsoft Azure as well as Heroku. The node server interacts with Google Books API. Furthermore, our system uses a NoSQL external Cloud database (MongoDB) to securely store our community user information (salted and hashed). 
+The backend is a REST-based service interface for CRUD operations (for example, data query of books, user sign up & login, POST, PUT) deployed via Google Cloud to facilitate scalable performance with Kubernetes of our dockerized image. SSL deployments are facilitated through Microsoft Azure and Heroku. The node server interacts with Google Books API. Furthermore, our system uses a NoSQL external Cloud database (MongoDB) to securely store our community user information (salted and hashed). 
 
 ## Backend
 It is advisable to use [Postman](https://www.postman.com/) for CRUD operations when accessing the backend.
+### CRUD Operations
+Basic CRUD operations are possible by accessing the API routes via adding ``api/users`` and ``api/books`` at the end of the web address following the REST standard. 
+
+Note that for ``api/login`` a bearer token will be needed to access the webpage, which can be sought after a user has been registered. For more details, please see the CRUD operations documentation in the video clip. 
+
+Whereas ``api/books`` will allow querying a book sear utilizing the external Google Books API. An example JSON GET request to ``api/books`` could be:
+
+```
+{
+    "name" : "Boris Johnson"
+
+}
+```
+
 ### Cloud App
 Our current backend is accessible as a cloud application :rocket: on [Google Cloud](#google-cloud), [Azure](#microsoft-azure) and [Heroku](#heroku). 
 Feel free to check them out!
@@ -309,4 +330,4 @@ You may be asked to install further dependencies to run the IOS simulator ([Xcod
 
 <!-- ### Disclaimer -->
 ###### Disclaimer
-This project is part of a cloud computing coursework taught by [Dr. Sukhpal Singh Gill](https://github.com/iamssgill) and [Ignacio De Castro Arribas](https://www.linkedin.com/in/ignacio-de-castro-arribas-44a48117) at the Queen Mary University of London Electrical Engineering & Computer Science Department to create a prototype of a cloud application._
+This project is part of a cloud computing coursework taught by [Dr. Sukhpal Singh Gill](https://github.com/iamssgill) and [Ignacio De Castro Arribas](https://www.linkedin.com/in/ignacio-de-castro-arribas-44a48117) at the Queen Mary University of London Electrical Engineering & Computer Science Department to create a prototype of a cloud application.
