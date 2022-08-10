@@ -1,4 +1,4 @@
-FROM node:14.18-alpine
+FROM node:14.20.0-alpine
 
 
 # Create app directory
