@@ -18,7 +18,7 @@
     "express-async-errors": "^3.1.1",
     "https": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.4",
+    "mongoose": "^6.11.3",
     "mongoose-unique-validator": "^2.0.3",
     "pem": "^1.14.4"
   },
