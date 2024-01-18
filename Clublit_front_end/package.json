@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@builderx/utils": "~0.1.7",
-    "expo": "^40.0.0",
+    "expo": "^50.0.0",
     "expo-app-loading": "^1.0.1",
     "expo-font": "~8.4.0",
     "lodash": "~4.17.4",
